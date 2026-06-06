@@ -1,7 +1,7 @@
 { config, pkgs, ...}:
 
 {
-	imports = [ "./hardware-configuration.nix"];
+	imports = [ ./hardware-configuration.nix];
 
 
 	# Bootloader configuration
@@ -30,7 +30,7 @@
 	# Services
 	services.xserver.enable = true;
 	services.displayManager.ly.enable = true;
-	service.desktopManager.xfce.enable = true;
+	services.desktopManager.xfce.enable = true;
 
 	## Audio
 	software.pulseaudio.enable = false;
@@ -38,7 +38,7 @@
 	services.pipewire = {
 		enable = true;
 		alsa.enable = true;
-		also.support32Bit = true;
+		alsa.support32Bit = true;
 		pulse.enable = true;
 	};
 
