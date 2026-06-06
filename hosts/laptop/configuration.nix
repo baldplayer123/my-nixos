@@ -43,7 +43,7 @@
 	};
 
 	## Bluetooth
-	hardware.bluetooth = {
+	software.bluetooth = {
 		enable = true;
 		powerOnBoot = true;
 	};
