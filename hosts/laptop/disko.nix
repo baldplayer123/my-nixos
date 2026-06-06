@@ -32,7 +32,7 @@
 						 content = {
 						 	type = "btrfs";
 							extraArgs = ["-f"];
-							subVolumes = {
+							subvolumes = {
 								"@" = {
 									mountpoint = "/";
 									mountOptions = [ "compress=zstd" "noatime"];
@@ -72,5 +72,5 @@
 
 		};
 
-	}
+	};
 }
