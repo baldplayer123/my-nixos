@@ -43,10 +43,11 @@
 	};
 
 	## Bluetooth
-	software.bluetooth = {
-		enable = true;
-		powerOnBoot = true;
+	hardware.bluetooth = {
+  	enable = true;
+  	powerOnBoot = true;
 	};
+
 
 	## SystemPackages
 	environment.systemPackages = with pkgs; [
