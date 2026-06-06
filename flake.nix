@@ -26,7 +26,7 @@
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
-					home-manager.user.bald = import ./hosts/laptop/home.nix;
+					home-manager.users.bald = import ./hosts/laptop/home.nix;
 
 				}
 			];
