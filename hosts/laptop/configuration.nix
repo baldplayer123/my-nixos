@@ -41,7 +41,6 @@
 	services.desktopManager.gnome.enable = true;
 
 	## Audio
-	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
 	services.pipewire = {
 		enable = true;
