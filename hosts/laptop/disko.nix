@@ -1,3 +1,4 @@
+{ ... }:
 {
 	disko.devices = {
 		disk = {
@@ -19,48 +20,44 @@
 							};
 						};
 
-						swap = {
-							size = 	"8G";
+						luks = {
+							size = "100%";
 							content = {
-								type = "swap";
-								discardPolicy = "both"; ## Means once and pages, so at startup, clean partition and if pages is freed, clean partitions
+								type = "luks";
+								name = "crypted";
+								settings = {
+									allowDiscards = true;
+								};
+								content = {
+									type = "btrfs";
+									extraArgs = [ "-f" ];
+									subvolumes = {
+										"@root" = {
+											mountpoint = "/";
+											mountOptions = ["compress=zstd" "noatime"];
+										};
+										"@persist" = {
+											mountpoint = "/persist";
+											mountOptions = ["compress=zstd" "noatime"];
+										};
+										"@nix" = {
+											mountpoint = "/nix";
+											mountOptions = ["compress=zstd" "noatime"];
+										};
+										"@swap" = {
+											mountpoint = "/swap";
+											swap.swapfile.size = "8G";
+										};
+										"@var" = {
+											mountpoint = "/var";
+											mountOptions = ["compress=zstd" "noatime"];
+										};
+									};
+								};
 							};
-						};
 
-						root = {
-						 size = "100%";
-						 content = {
-						 	type = "btrfs";
-							extraArgs = ["-f"];
-							subvolumes = {
-								"@" = {
-									mountpoint = "/";
-									mountOptions = [ "compress=zstd" "noatime"];
-								};
-	
-								"@home" = {
-									mountpoint = "/home";
-									mountOptions = [ "compress=zstd" "noatime"];
-								};
-
-								"@nix" = {
-									mountpoint = "/nix";
-									mountOptions = [ "compress=zstd" "noatime"];
-								};
-
-								"@var" = {
-									mountpoint = "/var";
-									mountOptions = [ "compress=zstd" "noatime"];
-								};
-
-							};
-
-
-
-						 };
 
 						};
-
 
 					};
 
