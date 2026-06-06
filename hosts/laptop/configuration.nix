@@ -21,10 +21,13 @@
 	programs.zsh.enable = true;
 
 	#users
+	users.mutableUsers = false;
+	users.users.root.hashedPassword = "!";
 	users.users.bald = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "networkmanager" "video" "audio"];
 		shell = pkgs.zsh;
+		initialPassword = changeme;
 	};
 
 	# Services
