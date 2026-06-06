@@ -9,11 +9,6 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.initrd.systemd.enable = true;
 
-	boot.initrd.luks.devices."crypted" = {
-		device = "/dev/disk/by-partlabel/luks";
-		allowDiscards = true;
-	};
-
 	# Networking
 	networking.hostName = "laptop";
 	networking.networkmanager.enable = true;
