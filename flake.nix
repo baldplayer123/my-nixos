@@ -7,6 +7,11 @@
 			url = "github:nix-community/disko";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+
+		};
 
 	};
 	
@@ -18,6 +23,12 @@
 				disko.nixosModules.disko
 				./hosts/laptop/configuration.nix ## Our os configuration
 				./hosts/laptop/disko.nix ## our partitioning configuration
+				home-manager.nixosModules.home-manager {
+					home-manager.useGlobalPkgs = true;
+					home-manager.useUserPackages = true;
+					home-manager.user.bald = import ./hosts/laptop/home.nix;
+
+				}
 			];
 
 		};
