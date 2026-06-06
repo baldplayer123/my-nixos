@@ -13,7 +13,6 @@
 		exiftool
 		gdb
 		which
-		pipx
 		exegol
 
 		# Apps
