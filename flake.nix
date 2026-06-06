@@ -16,7 +16,7 @@
 	};
 	
 	## This is going to create a configuration for our linux system 
-	outputs = {self, nixpkgs, disko, ...}: {
+	outputs = {self, nixpkgs, disko, home-manager, ...}: {
 		nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
