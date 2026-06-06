@@ -72,6 +72,7 @@
 		curl
 		wget
 		git
+		binutils
 	];
 
 
