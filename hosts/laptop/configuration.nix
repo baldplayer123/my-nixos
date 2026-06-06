@@ -35,10 +35,9 @@
 		initialPassword = "changeme";
 	};
 
-	# Services
-	services.xserver.enable = true;
+	# Graphic env
 	services.displayManager.ly.enable = true;
-	services.desktopManager.gnome.enable = true;
+	programs.hyprland.enable = true;
 
 	## Audio
 	security.rtkit.enable = true;
