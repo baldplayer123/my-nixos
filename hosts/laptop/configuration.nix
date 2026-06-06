@@ -18,6 +18,9 @@
 	i18n.defaultLocale = "fr_FR.UTF-8";
 	console.keyMap = "fr";
 
+	#Font
+	fonts.fontconfig.defaultFonts.monospace = [ "Source Code Pro" ];
+
 	# Programs
 	programs.zsh.enable = true;
 
