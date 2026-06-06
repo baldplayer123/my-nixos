@@ -4,7 +4,7 @@
 	home.homeDirectory = "/home/bald";
 	home.stateVersion = "26.05";
 
-	home.packages = [
+	home.packages = with pkgs; [
 		tmux
 		btops
 	];
