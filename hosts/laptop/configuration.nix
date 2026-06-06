@@ -26,11 +26,15 @@
 	# Programs
 	programs.zsh.enable = true;
 
+	# Virtualisation
+	virtualisation.libvirtd.enable = true;
+	programs.virt-manager.enable = true;
+
 	#users
 	users.users.root.hashedPassword = "!";
 	users.users.bald = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" "video" "audio"];
+		extraGroups = [ "wheel" "networkmanager" "video" "audio" "libvirtd"];
 		shell = pkgs.zsh;
 		initialPassword = "changeme";
 	};
@@ -41,7 +45,7 @@
 	services.xserver.enable = true;
 	services.desktopManager.gnome.enable = true;
 
-	## Audio
+	# Audio
 	security.rtkit.enable = true;
 	services.pipewire = {
 		enable = true;
@@ -50,14 +54,15 @@
 		pulse.enable = true;
 	};
 
-	## Bluetooth
+	# Bluetooth
 	hardware.bluetooth = {
   	enable = true;
   	powerOnBoot = true;
 	};
 
 
-	## SystemPackages
+
+	# SystemPackages
 	environment.systemPackages = with pkgs; [
 		vim
 		curl
@@ -66,7 +71,7 @@
 	];
 
 
-	## Nix configuration
+	# Nix configuration
 	nix.settings = {
 		experimental-features = ["nix-command" "flakes"];
 
