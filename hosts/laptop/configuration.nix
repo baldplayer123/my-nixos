@@ -30,11 +30,15 @@
 	virtualisation.libvirtd.enable = true;
 	programs.virt-manager.enable = true;
 
+	virtualisation.docker.enable = true;
+	virtualisation.docker.storageDriver = "btrfs";
+	virtualisation.docker.extraOptions = "--feature compose";
+
 	#users
 	users.users.root.hashedPassword = "!";
 	users.users.bald = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" "video" "audio" "libvirtd"];
+		extraGroups = [ "wheel" "networkmanager" "video" "audio" "libvirtd" "docker"];
 		shell = pkgs.zsh;
 		initialPassword = "changeme";
 	};
