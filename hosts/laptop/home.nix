@@ -5,7 +5,30 @@
 	home.stateVersion = "26.05";
 
 	home.packages = with pkgs; [
+		# Utils
 		tmux
 		btop
+		ranger
+		unzip
+		exiftool
+		gdb
+		which
+		pipx
+		exegol
+
+		# Apps
+		firefox
+		keepassxc
+		obsidian
+		gimp
+		flameshot
 	];
+
+
+	gtk = {
+		enable = true;
+  		theme = {
+    		name = "Adwaita-dark";
+  		};
+	};
 }
