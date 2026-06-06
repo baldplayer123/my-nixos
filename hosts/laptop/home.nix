@@ -6,6 +6,6 @@
 
 	home.packages = with pkgs; [
 		tmux
-		btops
+		btop
 	];
 }
