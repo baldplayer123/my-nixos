@@ -10,6 +10,10 @@
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.initrd.systemd.enable = true;
+    boot.initrd.luks.devices."crypted" = {
+		device = "/dev/disk/by-partlabel/disk-main_disk-luks";
+		allowDiscards = true;
+	};
 
 	# Networking
 	networking.hostName = "laptop";
