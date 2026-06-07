@@ -4,7 +4,7 @@
 		disk = {
 			main_disk = {
 				## Change this to the physical disk you are going to use !
-				device = "/dev/sda";
+				device = "/dev/nvme0n1";
 				type = "disk";
 				content = {
 					type = "gpt" ;
