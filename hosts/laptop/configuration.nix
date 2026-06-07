@@ -11,6 +11,7 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
 	boot.initrd.kernelModules = [ "dm-crypt" "dm_mod" ];
+    boot.initrd.systemd.enable = true;
     boot.initrd.luks.devices."crypted" = {
 		device = "/dev/disk/by-partlabel/disk-main_disk-luks";
 		allowDiscards = true;
