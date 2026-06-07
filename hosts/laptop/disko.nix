@@ -22,7 +22,7 @@
 
 						luks = {
 							size = "100%";
-							label = "luks"
+							label = "luks";
 							content = {
 								type = "luks";
 								name = "crypted";
