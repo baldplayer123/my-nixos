@@ -44,9 +44,8 @@
 
 	# Graphic env
 	services.displayManager.ly.enable = true;
-	#programs.hyprland.enable = true;
-	services.xserver.enable = true;
-	services.desktopManager.gnome.enable = true;
+	programs.hyprland.enable = true;
+	hardware.graphics.enable = true;
 
 	# Audio
 	security.rtkit.enable = true;
