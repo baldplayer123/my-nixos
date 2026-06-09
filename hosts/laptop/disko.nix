@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-id/CHANGE-ME";  # you'll set this in Phase 2
+        device = "/dev/CHANGE-ME";
         type = "disk";
         content = {
           type = "gpt";
