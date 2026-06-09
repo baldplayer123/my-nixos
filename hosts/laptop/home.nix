@@ -10,7 +10,7 @@
 
 
 	# dotfiles
-	home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;	
+	home.file.".config/hypr".source = ./dotfiles/hypr;	
 
 	home.packages = with pkgs; [
 		
