@@ -44,8 +44,19 @@
 
 	# Graphic env
 	services.displayManager.ly.enable = true;
-	programs.hyprland.enable = true;
-	hardware.graphics.enable = true;
+	programs.sway = {
+		enable = true;
+		wrapperFeatures.gtk = true;
+	};
+
+	xdg.portal = {
+		enable = true;
+ 		wlr.enable = true;
+		extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+	};
+
+	# Security
+	security.polkit.enable = true;
 
 	# Audio
 	security.rtkit.enable = true;

@@ -10,15 +10,20 @@
 
 
 	# dotfiles
-	home.file.".config/hypr".source = ./dotfiles/hypr;	
+	home.file.".config/sway".source = ./dotfiles/sway;	
 
 	home.packages = with pkgs; [
 		
 		#Hyprland
 		kitty
 		wofi
+		waybar
+		swaybg # Wallpaper
+		mako
 		wl-clipboard
-		grim slurp
+		brightnessctl
+		flameshot
+				
 
 		# Utils
 		tmux
@@ -40,10 +45,20 @@
 	];
 
 
-	gtk = {
+	#Flamesot config
+	services.flameshot = {
 		enable = true;
-  		theme = {
-    		name = "Adwaita-dark";
-  		};
+			settings = {
+				General = {
+					useGrimAdapter = true;
+					#disabledGrimWarning = true;
+				};
+			};
 	};
+
+	xdg.configFile."flameshot/flameshot.ini".text = ''
+		[General]
+		useGrimAdapter=true
+	'';
+
 }
