@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
 	
 
@@ -7,9 +7,15 @@
 	home.homeDirectory = "/home/bald";
 	home.stateVersion = "26.05";
 
+
+
+	# dotfiles
+	home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;	
+
 	home.packages = with pkgs; [
 		
 		#Hyprland
+		kitty
 		wofi
 		wl-clipboard
 		grim slurp
