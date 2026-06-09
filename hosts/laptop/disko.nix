@@ -18,17 +18,22 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            root = {
+            luks = {
               size = "100%";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@root" = { mountpoint = "/";     mountOptions = [ "compress=zstd" "noatime" ]; };
-                  "@home" = { mountpoint = "/home"; mountOptions = [ "compress=zstd" "noatime" ]; };
-                  "@nix"  = { mountpoint = "/nix";  mountOptions = [ "compress=zstd" "noatime" ]; };
-                  "@var"  = { mountpoint = "/var";  mountOptions = [ "compress=zstd" "noatime" ]; };
-                  "@swap" = { mountpoint = "/swap"; swap.swapfile.size = "8G"; };
+                type = "luks";
+                name = "cryptroot";            # becomes /dev/mapper/cryptroot
+                settings.allowDiscards = true; 
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@root" = { mountpoint = "/";     mountOptions = [ "compress=zstd" "noatime" ]; };
+                    "@home" = { mountpoint = "/home"; mountOptions = [ "compress=zstd" "noatime" ]; };
+                    "@nix"  = { mountpoint = "/nix";  mountOptions = [ "compress=zstd" "noatime" ]; };
+                    "@var"  = { mountpoint = "/var";  mountOptions = [ "compress=zstd" "noatime" ]; };
+                    "@swap" = { mountpoint = "/swap"; swap.swapfile.size = "8G"; };
+                  };
                 };
               };
             };
