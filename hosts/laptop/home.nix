@@ -9,6 +9,7 @@
 		tmux
 		btop
 		ranger
+		zip
 		unzip
 		exiftool
 		gdb
