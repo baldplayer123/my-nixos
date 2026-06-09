@@ -20,9 +20,10 @@
 		waybar
 		swaybg # Wallpaper
 		mako
+		grim
+		slurp
 		wl-clipboard
 		brightnessctl
-		flameshot
 				
 
 		# Utils
@@ -41,7 +42,6 @@
 		keepassxc
 		obsidian
 		gimp
-		flameshot
 	];
 
 
@@ -55,10 +55,5 @@
 				};
 			};
 	};
-
-	xdg.configFile."flameshot/flameshot.ini".text = ''
-		[General]
-		useGrimAdapter=true
-	'';
 
 }
