@@ -1,3 +1,5 @@
+include /etc/sway/config.d/*
+
 ## Variables
 set $mod Mod4
 set $term kitty
@@ -6,6 +8,7 @@ set $browser firefox
 
 input "type:keyboard" {
 	xkb_layout "fr"
+    xkb_options "caps:escape"
 }
 
 input "type:touchpad" {
@@ -16,7 +19,8 @@ input "type:touchpad" {
 ## AutoStart
 exec waybar
 exec mako
-#exec swaybg -i ~/.config/sway/wallpaper.jpg -m fill
+exec swayidle -w timeout 300 'swaylock -f'
+exec swaybg -i ~/.config/sway/wallpaper.jpg -m fill  
 
 ## Appearance
 gaps inner 5
@@ -26,12 +30,16 @@ default_border pixel 2
 ## Core keybinds
 bindsym $mod+t exec $term
 bindsym $mod+q kill
-bindsym $mod+a $menu
+bindsym $mod+a exec $menu
 bindsym $mod+v floating toggle
 bindsym $mod+Shift+b fullscreen
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exit
 bindsym $mod+Shift+f exec $browser
+bindsym $mod+Escape exec swaylock -f
+bindsym $mod+o exec obsidian
+bindsym $mod+d exec discord
+
 
 ## Focus
 bindsym $mod+h focus left
@@ -96,4 +104,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+p exec grim - | wl-copy
 
+# ── Window border colors (minimal black/mono) ──────────
+# client.<class>      <border>  <background> <text>    <indicator> <child_border>
+client.focused          #ffffff   #ffffff      #0a0a0a   #ffffff     #ffffff
+client.focused_inactive #161616   #161616      #cfcfcf   #161616     #161616
+client.unfocused        #0a0a0a   #0a0a0a      #777777   #0a0a0a     #0a0a0a
+client.urgent           #c05050   #c05050      #0a0a0a   #c05050     #c05050
 

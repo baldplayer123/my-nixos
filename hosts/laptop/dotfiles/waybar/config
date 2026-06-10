@@ -1,0 +1,39 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 6,
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+  "modules-center": [],
+  "modules-right": ["idle_inhibitor", "cpu", "memory", "temperature", "pulseaudio", "bluetooth", "network", "battery", "clock"],
+  "sway/workspaces": { "disable-scroll": false, "format": "{name}" },
+  "sway/mode": { "format": "[mode] {}" },
+  "sway/window": { "format": "{title}", "max-length": 50, "tooltip": false },
+  "idle_inhibitor": { "format": "[idle:{icon}]", "format-icons": { "activated": "on", "deactivated": "off" }, "tooltip": true },
+  "cpu": { "interval": 2, "format": "[cpu] {usage}%", "tooltip": true },
+  "memory": { "interval": 5, "format": "[mem] {percentage}%", "tooltip-format": "{used:0.1f}G / {total:0.1f}G" },
+  "temperature": { "critical-threshold": 80, "format": "[temp] {temperatureC}°C", "format-critical": "[!temp] {temperatureC}°C" },
+  "pulseaudio": {
+    "format": "[vol] {volume}%",
+    "format-muted": "[muted]",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+  "bluetooth": { "format": "[bt] {status}", "format-connected": "[bt] {device_alias}", "format-disabled": "[bt off]", "tooltip-format": "{controller_alias}\t{controller_address}", "on-click": "blueman-manager" },
+  "network": { "format-wifi": "[wifi] {signalStrength}%", "format-ethernet": "[eth] {ipaddr}", "format-linked": "[net] {ifname} (no IP)", "format-disconnected": "[offline]", "tooltip-format": "{essid} ({signalStrength}%)\n{ipaddr}" },
+  "battery": {
+    "interval": 30,
+    "states": { "warning": 30, "critical": 15 },
+    "format": "[bat] {capacity}%",
+    "format-charging": "[chg] {capacity}%",
+    "format-plugged": "[plug] {capacity}%",
+    "tooltip-format": "{timeTo}  ({power}W)"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d %b %Y}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "calendar": { "mode": "month", "on-scroll": 1 }
+  }
+}

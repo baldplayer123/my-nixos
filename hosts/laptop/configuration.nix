@@ -5,9 +5,9 @@
 		./hardware-configuration.nix 
 	];
 
-
 	# Bootloader configuration
 	boot.loader.systemd-boot.enable = true;
+    boot.loader.systemd-boot.configurationLimit = 10;
 	boot.loader.efi.canTouchEfiVariables = true;
 
 	# Networking
@@ -19,8 +19,12 @@
 	i18n.defaultLocale = "fr_FR.UTF-8";
 	console.keyMap = "fr";
 
-	#Font
-	fonts.fontconfig.defaultFonts.monospace = [ "Source Code Pro" ];
+    fonts.packages = with pkgs; [
+        font-awesome_4
+        nerd-fonts.symbols-only
+        nerd-fonts.jetbrains-mono
+    ];
+
 
 	# Programs
 	programs.zsh.enable = true;
@@ -58,6 +62,7 @@
 
 	# Security
 	security.polkit.enable = true;
+	security.pam.services.swaylock = {};
 
 	# Audio
 	security.rtkit.enable = true;
