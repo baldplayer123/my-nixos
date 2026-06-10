@@ -38,7 +38,7 @@ bindsym $mod+Shift+e exit
 bindsym $mod+Shift+f exec $browser
 bindsym $mod+Escape exec swaylock -f
 bindsym $mod+o exec obsidian
-bindsym $mod+d exec discord
+bindsym $mod+d exec swaymsg [app_id="discord-ptb"] focus || discord-ptb
 
 
 ## Focus

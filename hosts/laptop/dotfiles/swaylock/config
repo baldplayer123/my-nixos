@@ -1,4 +1,4 @@
-image=~/.config/sway/wallpaper.png
+image=~/.config/sway/wallpaper.jpg
 scaling=fill
 show-failed-attempts
 indicator-radius=100

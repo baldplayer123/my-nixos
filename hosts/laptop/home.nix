@@ -92,9 +92,28 @@
 			name = "Adwaita-dark";
 			package = pkgs.gnome-themes-extra;
 		};
+        gtk3.extraConfig = {
+          gtk-application-prefer-dark-theme = 1;
+        };
+        gtk4.extraConfig = {
+          gtk-application-prefer-dark-theme = 1;
+        };
+
 	};
+
+     home.pointerCursor = {
+        gtk.enable = true;
+        package = pkgs.vanilla-dmz;
+        name = "Vanilla-DMZ";
+     };
+    
+
 
 	home.username = "bald";
 	home.homeDirectory = "/home/bald";
 	home.stateVersion = "26.05";
+    home.sessionVariables = {
+        GTK_THEME = "Adwaita-dark";
+    };
+    
 }
