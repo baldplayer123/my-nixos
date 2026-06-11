@@ -5,6 +5,10 @@ set $mod Mod4
 set $term kitty
 set $menu wofi --show drun
 set $browser firefox
+## Display
+exec_always pkill wl-mirror
+exec_always wl-mirror --fullscreen-output HDMI-A-1 eDP-1
+
 
 input "type:keyboard" {
 	xkb_layout "fr"
